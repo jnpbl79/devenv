@@ -1,10 +1,3 @@
----
-title: Install Docker on Ubuntu
-tags:
-  - docker
-  - ubuntu
----
-
 # Installing Docker on Ubuntu
 
 ## Install using the repository
@@ -80,3 +73,7 @@ $ sudo usermod -aG docker $USER
 $ sudo systemctl enable docker.service
 $ sudo systemctl enable containerd.service
 ```
+
+-----
+ - [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
+ - [Post-installation steps for Linux](https://docs.docker.com/engine/install/linux-postinstall/)
