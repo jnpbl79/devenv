@@ -1,48 +1,16 @@
 # Installing Docker on Ubuntu
 
-## Install using the repository
-
-Before you install Docker Engine for the first time on a new host machine, you need to set up the Docker repository. Afterward, you can install and update Docker from the repository.
-
-### SET UP THE REPOSITORY
-
-Update the `apt` package index and install packages to allow `apt` to use a repository over HTTPS:
-```bash
-$ sudo apt-get update
-
-$ sudo apt-get install \
-    apt-transport-https \
-    ca-certificates \
-    curl \
-    gnupg-agent \
-    software-properties-common
-```
-
-Add Docker’s official GPG key:
-```bash
-$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-```
-
-Set up **stable** repository.
-```bash
-$ sudo add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable"
-```
-
-### INSTALL DOCKER ENGINE
-
-Update the `apt` package index, and install the latest version of Docker Engine and containerd, or go to the next step to install a specific version:
-```bash
-$ sudo apt-get update
-$ sudo apt-get install docker-ce docker-ce-cli containerd.io
+```shell
+$ curl -fsSL get.docker.com -o get-docker.sh
+$ sudo sh get-docker.sh
 ```
 
 Verify that Docker Engine is installed correctly by running the `hello-world` image.
 ```bash
 $ sudo docker run hello-world
 ```
+
+In order to upgrade Docker, you will need to use the package manager on your host. Rerunning the script can cause issues if it attempts to re-add repositories that were already added. See the previous recipes to learn how to upgrade Docker on CentOS and Ubuntu using their respective package managers.
 
 ## Install Docker-Compose
 
@@ -75,5 +43,6 @@ $ sudo systemctl enable containerd.service
 ```
 
 -----
+ - [Installing Docker on Linux with an automated script](https://subscription.packtpub.com/book/virtualization_and_cloud/9781788626866/1/ch01lvl1sec15/installing-docker-on-linux-with-an-automated-script)
  - [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
  - [Post-installation steps for Linux](https://docs.docker.com/engine/install/linux-postinstall/)
